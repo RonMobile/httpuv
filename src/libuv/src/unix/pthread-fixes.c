@@ -34,6 +34,7 @@
 #include <pthread.h>
 #include <signal.h>
 
+#ifndef __TERMUX__
 int uv__pthread_sigmask(int how, const sigset_t* set, sigset_t* oset) {
   static int workaround;
   int err;
@@ -54,3 +55,4 @@ int uv__pthread_sigmask(int how, const sigset_t* set, sigset_t* oset) {
 
   return 0;
 }
+#endif
